@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  alpine:
+    image: alpine:latest
+    # OS containers immediately shut down unless stdin_open and tty are set
+    # https://github.com/docker/compose/issues/5016
+    stdin_open: true
+    tty: true
+    
+    volumes:
+      # $HOME is also supported as well as '~'
+      # ":rw" on the end means the volume will be read/write.
+      - ~/dev:/userdev:rw
+
+  centos:
+    image: centos:latest
+    stdin_open: true
+    tty: true
+    
+    volumes:
+      - ~/dev:/userdev:rw
+
+  ubuntu:
+    image: ubuntu:latest
+    stdin_open: true
+    tty: true
+    
+    volumes:
+      - ~/dev:/userdev:rw
