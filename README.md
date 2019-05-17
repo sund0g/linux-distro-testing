@@ -16,7 +16,7 @@ Docker-based images used for cross-platform testing. This is a quick way to star
 	1. Get the distro container information
 
 			docker container ls
-	2. "exec" to the distro container command line [^1]
+	2. "exec" to the distro container command line <sup>[1](#fn1)</sup>
 
 			docker exec -it <container name> /bin/sh
 * To exit the the container shell
@@ -28,13 +28,14 @@ Docker-based images used for cross-platform testing. This is a quick way to star
 * To shut down and remove any volumes that may have been created
 
 		docker-compose down --volumes
-* To shut down and remove all the distro images [^2]
+* To shut down and remove all the distro images <sup>[2](#fn2)</sup>
 
 		docker-compose down --rmi all
 
+---
 
-[^1]: Not using the [attach](https://docs.docker.com/engine/reference/commandline/attach/) command because exiting from the shell will detach and stop the container, which may not be the desired behavior during testing.
+<a name="fn1">1</a>: Not using the [attach](https://docs.docker.com/engine/reference/commandline/attach/) command because exiting from the shell will detach and stop the container, which may not be the desired behavior during testing.
 
-[^2]: Refer to the [docker-compose down documentation](https://docs.docker.com/compose/reference/down/) for details on the images to be removed. An alternative method is to remove each of the images with `docker image rm <image id>`
+<a name="fn2">2</a>: Refer to the [docker-compose down documentation](https://docs.docker.com/compose/reference/down/) for details on the images to be removed. An alternative method is to remove each of the images with `docker image rm <image id>`
 
 
